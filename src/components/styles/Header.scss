@@ -1,0 +1,16 @@
+@use  '../../variables.scss' as *;
+
+header{
+    background-color: $dark-blue;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    align-items: center;
+    button{
+        font-size: 1.4rem;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        color: $white;
+    }
+}
