@@ -1,7 +1,4 @@
-@use  '../../variables.scss' as *;
-
 header{
-    background-color: $dark-blue;
     display: flex;
     justify-content: space-between;
     padding: 20px;
@@ -11,6 +8,14 @@ header{
         background-color: transparent;
         border: none;
         cursor: pointer;
-        color: $white;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+}
+
+@media (max-width:768px){
+    h2{
+        font-size: 1.6rem;
     }
 }

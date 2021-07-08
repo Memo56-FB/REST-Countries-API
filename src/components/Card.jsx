@@ -22,16 +22,24 @@ export default class Card extends Component {
     }
     render() {
         const country = this.state.data;
+
         const countries = country.map((country)=>{
-            return <article key={country.numericCode} className="card">
-                        {country.name}
-                        
+            return <article key={country.numericCode} className="country">
+                        <figure className="country__image">
+                            <img src={country.flag} alt={country.name} />        
+                        </figure>
+                        <div className="country__information">
+                            <h3 className="country__title">{country.name}</h3>
+                            <p>Population: {country.population}</p>
+                            <p>Region: {country.region}</p>
+                            <p>Capital: {country.capital}</p>
+                        </div>
                     </article>
         })
         return (
-            <React.Fragment>
+            <main>
                 {countries}
-            </React.Fragment>
+            </main>
         )
     }
 }
