@@ -20,6 +20,7 @@ export const GlobalStyle = createGlobalStyle`
     }
     header{
         background-color:${props => props.theme.color.backgroundColorElements};
+        box-shadow: 0 0 7px ${props => props.theme.color.shadow}
     }
     header button {
         color: ${props => props.theme.color.text};
@@ -27,11 +28,19 @@ export const GlobalStyle = createGlobalStyle`
     header button::after{
         content: "${props => props.theme.name}";
     }
-    .country__information{
+    .country{
         background-color: ${props => props.theme.color.backgroundColorElements};
+        box-shadow: 0 0 7px ${props => props.theme.color.shadow};
+    }
+    .search-bar{
+        background-color: ${props => props.theme.color.backgroundColorElements};
+        box-shadow: 0 0 7px ${props => props.theme.color.shadow};
     }
     input{
-        background-color: ${props => props.theme.color.input};
+        background-color: ${props => props.theme.color.backgroundColorElements};
+        color: ${props => props.theme.color.text};
+    }
+    input::placeholder{
         color: ${props => props.theme.color.text};
     }
 `

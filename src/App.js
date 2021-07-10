@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 // import Header from './components/Header'
-import Card from './components/Card'
+import Card from './components/Countries'
 import { ThemeProvider } from 'styled-components'
 import './styles/Header.scss'
 

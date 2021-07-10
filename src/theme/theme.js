@@ -5,7 +5,7 @@ export const dark = {
         backgroundColorElements:"hsl(209, 23%, 22%)" ,
         body:"hsl(207, 26%, 17%)" ,
         text:"hsl(0, 0%, 100%)",
-        input:"hsl(209, 23%, 22%)"
+        shadow: "#0c0f1d",
     }
 }
 export const light={
@@ -14,6 +14,6 @@ export const light={
         backgroundColorElements:"hsl(0, 0%, 100%)",
         body:"hsl(0, 0%, 98%)",
         text:" hsl(200, 15%, 8%)",
-        input:"hsl(0, 0%, 52%)"
+        shadow: "rgb(182, 180, 180)"
     }
 } 

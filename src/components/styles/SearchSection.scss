@@ -1,0 +1,25 @@
+.search-section{
+    display: flex;
+    height: 100px;
+    align-items: center;
+    justify-content: space-around;
+}
+input{
+    padding-left: 10px;
+    border: none;
+    outline: none;
+    width: calc(300px - 40px);
+}
+
+.search-bar{
+    display: flex;
+    align-items: center;
+    border-radius:4px;
+    padding: 10px;
+    width: 300px;
+}
+@media (max-width:768px){
+    .search-section{
+        flex-direction: column;
+    }
+}

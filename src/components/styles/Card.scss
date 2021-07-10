@@ -6,6 +6,7 @@ main{
 .country{
     flex: 0 1 280px;
     margin:25px;
+    border-radius: 4px;
     &__image{
         height: 14rem;
         display: flex;

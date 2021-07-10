@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import SerachSection from './SerachSection';
 import './styles/Card.scss'
 
 export default class Card extends Component {
@@ -6,6 +7,8 @@ export default class Card extends Component {
         super(props);
         this.state = {
             data: [],
+            inputValue:"",
+            sortCountries:[],
         }
     }
     componentDidMount(){
@@ -20,7 +23,15 @@ export default class Card extends Component {
             return console.error(error)
         }
     }
+    countryFilterOnChange = (event) => {
+        console.log("Esta jalando esta wea? " + event.target.value);
+        this.setState({inputValue: event.target.value});
+        this.setState({data:this.sortCountries(this.filteredCountries)})
+    }
     render() {
+        const filteredCountries = this.state.data.filter(country =>{
+            return country.name.toLowerCase().includes(this.state.inputValue.toLowerCase())
+        })
         const country = this.state.data;
 
         const countries = country.map((country)=>{
@@ -37,9 +48,12 @@ export default class Card extends Component {
                     </article>
         })
         return (
-            <main>
-                {countries}
-            </main>
+            <React.Fragment>
+                <SerachSection value={this.state.inputValue} countryFilterOnChange={this.countryFilterOnChange} />
+                <main>
+                    {countries}
+                </main>
+            </React.Fragment>
         )
     }
 }
