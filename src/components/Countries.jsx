@@ -1,20 +1,20 @@
 import React, { Component } from 'react'
-import SerachSection from './SerachSection';
+import SerachSection from './SearchSection';
 import './styles/Card.scss'
 
-export default class Card extends Component {
+export default class Countries extends Component {
     constructor(props){
         super(props);
         this.state = {
             data: [],
             inputValue:"",
-            sortCountries:[],
+            searchRegion:""
         }
     }
     componentDidMount(){
         this.getCountries();
     }
-    getCountries =async ()=>{
+    getCountries = async ()=>{
         try{
             const response = await fetch('https://restcountries.eu/rest/v2/all');
             const data = await response.json();
@@ -23,18 +23,25 @@ export default class Card extends Component {
             return console.error(error)
         }
     }
-    countryFilterOnChange = (event) => {
-        console.log("Esta jalando esta wea? " + event.target.value);
-        this.setState({inputValue: event.target.value});
-        this.setState({data:this.sortCountries(this.filteredCountries)})
+    handleChangeInput = e =>{
+        this.setState({
+            inputValue: e.target.value
+        })
+    }
+    handleChangeRegion = e => {
+        this.setState({
+            searchRegion: e.target.value
+        })
     }
     render() {
-        const filteredCountries = this.state.data.filter(country =>{
-            return country.name.toLowerCase().includes(this.state.inputValue.toLowerCase())
-        })
         const country = this.state.data;
-
         const countries = country.map((country)=>{
+            if(this.state.inputValue !== "" && country.name.toLowerCase().indexOf(this.state.inputValue.toLowerCase())=== -1){
+                return null;
+            }
+            if(this.state.searchRegion !== "All" && this.state.searchRegion !== "" && country.region.toLowerCase().indexOf(this.state.searchRegion.toLowerCase())=== -1){
+                return null;
+            }
             return <article key={country.numericCode} className="country">
                         <figure className="country__image">
                             <img src={country.flag} alt={country.name} />        
@@ -49,7 +56,7 @@ export default class Card extends Component {
         })
         return (
             <React.Fragment>
-                <SerachSection value={this.state.inputValue} countryFilterOnChange={this.countryFilterOnChange} />
+                <SerachSection inputValue={this.state.inputValue} handleChangeInput={this.handleChangeInput} handleChangeRegion={this.handleChangeRegion}/>
                 <main>
                     {countries}
                 </main>

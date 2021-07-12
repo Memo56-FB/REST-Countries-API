@@ -43,4 +43,9 @@ export const GlobalStyle = createGlobalStyle`
     input::placeholder{
         color: ${props => props.theme.color.text};
     }
+    .region-filter{
+        background-color: ${props => props.theme.color.backgroundColorElements};
+        color: ${props => props.theme.color.text};
+        box-shadow: 0 0 7px ${props => props.theme.color.shadow};
+    }
 `
