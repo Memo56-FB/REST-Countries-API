@@ -1,11 +1,12 @@
-main{
+.countries-container{
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
+    padding: 0 40px;
 }
 .country{
     flex: 0 1 280px;
-    margin:25px;
+    margin: 20px 0;
     border-radius: 4px;
     &__image{
         height: 14rem;
@@ -36,10 +37,18 @@ main{
     }
 }
 @media (max-width:768px){
+    .countries-container{
+        justify-content: space-between;
+    }
     .country__information{
         font-size: 1.2rem;
     }
     .country__title{
         font-size: 1.6rem;
+    }
+}
+@media (max-width:375px){
+    .countries-container{
+        padding: 0 20px;
     }
 }

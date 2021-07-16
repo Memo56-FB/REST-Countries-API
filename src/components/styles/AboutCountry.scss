@@ -1,0 +1,36 @@
+.about-container{
+    display: grid;
+    grid-template-columns: 40px 1fr 40px;
+    grid-template-rows:40px auto 1fr auto;
+    .about__btn-back{
+        border: none;
+        border-radius: 4px;
+        padding: 5px;
+        cursor: pointer;
+        width: 120px;
+        display: flex;
+        justify-content:  center;
+        align-items: center;
+        gap: 10px;
+        grid-column: 2/2;
+        grid-row: 2/2;
+    }
+    .country-container{
+        display: grid;
+        grid-template-columns: 40% 10% 40%;
+        margin-top: 40px;
+        grid-column: 2/2;
+        grid-row: 3/3;
+        & figure{
+            grid-column: 1/1;
+        }
+        & img{
+            width: 100%;
+        }
+        .country__information{
+            grid-column: 3/3;
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}
