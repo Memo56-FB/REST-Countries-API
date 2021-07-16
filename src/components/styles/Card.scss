@@ -23,6 +23,9 @@ main{
     &__information{
         width: 100;
         padding: 15px;
+        .bold{
+            font-weight: 600;
+        }
         p{
             margin-bottom: .5rem;
         }

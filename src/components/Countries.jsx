@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import SerachSection from './SearchSection';
+import { Link } from 'react-router-dom';
+
+import SearchSection from './SearchSection';
 import './styles/Card.scss'
 
 export default class Countries extends Component {
@@ -42,21 +44,24 @@ export default class Countries extends Component {
             if(this.state.searchRegion !== "All" && this.state.searchRegion !== "" && country.region.toLowerCase().indexOf(this.state.searchRegion.toLowerCase())=== -1){
                 return null;
             }
-            return <article key={country.numericCode} className="country">
-                        <figure className="country__image">
-                            <img src={country.flag} alt={country.name} />        
-                        </figure>
+            return <article key={country.alpha3Code} className="country">
+                        <Link to={`/about/${country.alpha3Code}`}>
+                            <figure className="country__image">
+                                
+                                    <img src={country.flag} alt={country.name} />
+                            </figure>
+                        </Link>        
                         <div className="country__information">
                             <h3 className="country__title">{country.name}</h3>
-                            <p>Population: {country.population}</p>
-                            <p>Region: {country.region}</p>
-                            <p>Capital: {country.capital}</p>
+                            <p><span className="bold">Population:</span> {country.population}</p>
+                            <p><span className="bold">Region:</span> {country.region}</p>
+                            <p><span className="bold">Capital:</span> {country.capital}</p>
                         </div>
                     </article>
         })
         return (
             <React.Fragment>
-                <SerachSection inputValue={this.state.inputValue} handleChangeInput={this.handleChangeInput} handleChangeRegion={this.handleChangeRegion}/>
+                <SearchSection inputValue={this.state.inputValue} handleChangeInput={this.handleChangeInput} handleChangeRegion={this.handleChangeRegion}/>
                 <main>
                     {countries}
                 </main>
