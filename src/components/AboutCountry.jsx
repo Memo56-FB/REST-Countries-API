@@ -54,14 +54,18 @@ export default class AboutCountry extends Component {
                     <article className="country__information">
                         <h1 className="country__name">{country.name}</h1>
                         <div className="country__details">
-                            <p><span className="bold">Native Name:</span> {country.nativeName}</p>
-                            <p><span className="bold">Population:</span> {new Intl.NumberFormat('en-EU').format(populationNumber)}</p>
-                            <p><span className="bold">Region:</span> {country.region}</p>
-                            <p><span className="bold">Sub Region:</span> {country.subregion}</p>
-                            <p><span className="bold">Capital:</span> {country.capital}</p>
-                            <p><span className="bold">Top Level Domain:</span> {country.topLevelDomain}</p>
-                            <p><span className="bold">Currencies:</span> {currenciName.join(', ')}</p>
-                            <p><span className="bold">Languages: </span>{languages.join(', ')}</p> 
+                            <div className="first-content">
+                                <p><span className="bold">Native Name:</span> {country.nativeName}</p>
+                                <p><span className="bold">Population:</span> {new Intl.NumberFormat('en-EU').format(populationNumber)}</p>
+                                <p><span className="bold">Region:</span> {country.region}</p>
+                                <p><span className="bold">Sub Region:</span> {country.subregion}</p>
+                                <p><span className="bold">Capital:</span> {country.capital}</p>
+                            </div>
+                            <div className="second-content">
+                                <p><span className="bold">Top Level Domain:</span> {country.topLevelDomain}</p>
+                                <p><span className="bold">Currencies:</span> {currenciName.join(', ')}</p>
+                                <p><span className="bold">Languages: </span>{languages.join(', ')}</p> 
+                            </div>
                         </div>
                     </article>
                 </section>
