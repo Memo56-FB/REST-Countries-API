@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 import SearchSection from './SearchSection';
 import './styles/Card.scss'
@@ -49,7 +50,7 @@ export default class Countries extends Component {
                         <Link to={`/about/?alphaCode=${country.alpha3Code}`}>
                             <figure className="country__image">
                                 
-                                    <img src={country.flag} alt={country.name} />
+                                    <LazyLoadImage className="lazy" loading="lazy" src={country.flag} alt={country.name} />
                             </figure>
                         </Link>        
                         <div className="country__information">
