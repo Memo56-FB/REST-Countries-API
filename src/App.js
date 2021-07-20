@@ -23,7 +23,7 @@ export default function App() {
               <h2>Where in the world</h2>
               <button onClick={()=>{themeToggler()}} ><ion-icon name="moon"></ion-icon> </button>    
             </header>
-            {/* <Redirect exact from="/" to="/countries" /> */}
+            <Redirect exact from="/" to="/countries" />
             <Switch>
               <Route exact path="/countries">
                 <Countries/>
