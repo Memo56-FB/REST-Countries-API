@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import { ThemeProvider } from 'styled-components'
-import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom'
 
 import {light, dark} from './theme/theme'
 import {GlobalStyle} from './theme/global'
