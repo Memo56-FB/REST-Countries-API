@@ -48,4 +48,22 @@ export const GlobalStyle = createGlobalStyle`
         color: ${props => props.theme.color.text};
         box-shadow: 0 0 7px ${props => props.theme.color.shadow};
     }
+    .border{
+        background-color:${props => props.theme.color.backgroundColorElements};
+        box-shadow: 0 0 7px ${props => props.theme.color.shadow}
+    }
+
+    ::-webkit-scrollbar{
+    width: 6px;
+    height: 6px;
+    }
+    ::-webkit-scrollbar-thumb{
+    background:grey;
+    border-radius: 10px;
+    }
+    ::-webkit-scrollbar-track{
+    background:#848d95 ;
+    border-radius: 10px;
+    box-shadow: inset 7px 10px 12px 0px #F0F0F0;
+}
 `

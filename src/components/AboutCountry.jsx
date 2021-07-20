@@ -34,6 +34,12 @@ export default class AboutCountry extends Component {
             this.setState({error})
         }
     }
+    reload = () =>{
+        setTimeout(() => {
+            window.location.reload()
+        }, 10);
+    }
+    
 
     render() {
         const country = this.state.data;
@@ -43,6 +49,13 @@ export default class AboutCountry extends Component {
         const languages = country.languages.map(language =>{
             return language.name;
         })
+
+        const borders = country.borders.map(border => {
+            return <Link onClick={this.reload} key={border} to={`/about/?alphaCode=${border}`}>
+                        <p className="border">{border}</p>
+                   </Link>
+        })
+
         let populationNumber = country.population;
         return (
             <main className="about-container">
@@ -54,17 +67,23 @@ export default class AboutCountry extends Component {
                     <article className="country__information">
                         <h1 className="country__name">{country.name}</h1>
                         <div className="country__details">
-                            <div className="first-content">
+                            <div>
                                 <p><span className="bold">Native Name:</span> {country.nativeName}</p>
                                 <p><span className="bold">Population:</span> {new Intl.NumberFormat('en-EU').format(populationNumber)}</p>
                                 <p><span className="bold">Region:</span> {country.region}</p>
                                 <p><span className="bold">Sub Region:</span> {country.subregion}</p>
                                 <p><span className="bold">Capital:</span> {country.capital}</p>
                             </div>
-                            <div className="second-content">
+                            <div>
                                 <p><span className="bold">Top Level Domain:</span> {country.topLevelDomain}</p>
                                 <p><span className="bold">Currencies:</span> {currenciName.join(', ')}</p>
                                 <p><span className="bold">Languages: </span>{languages.join(', ')}</p> 
+                            </div>
+                        </div>
+                        <div className="borders">
+                            <p className="bold borders__title">Border Countries:</p>
+                            <div>
+                            {borders}
                             </div>
                         </div>
                     </article>
