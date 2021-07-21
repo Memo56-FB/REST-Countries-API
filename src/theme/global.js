@@ -18,6 +18,9 @@ export const GlobalStyle = createGlobalStyle`
         text-decoration: none;
         color: inherit;
     }
+    .preloader{
+        background-color:${props => props.theme.color.body};
+    }
     header{
         background-color:${props => props.theme.color.backgroundColorElements};
         box-shadow: 0 0 7px ${props => props.theme.color.shadow}

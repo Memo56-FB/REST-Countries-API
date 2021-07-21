@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
+import PageLoad from './PageLoad';
 
 import './styles/AboutCountry.scss'
 const arrowBack  = <ion-icon name="arrow-back-outline"></ion-icon>
@@ -15,6 +16,7 @@ export default class AboutCountry extends Component {
                 languages:[]
             },
             error:null,
+            loading:true
         }
     }
     componentDidMount(){
@@ -29,9 +31,9 @@ export default class AboutCountry extends Component {
             let alphaCode = url.searchParams.get("alphaCode");
             const response = await fetch(`https://restcountries.eu/rest/v2/alpha/${alphaCode}`)
             const data = await response.json();
-            this.setState({data})
+            this.setState({data,loading:false})
         }catch(error){
-            this.setState({error})
+            this.setState({error,loading:false})
         }
     }
     reload = () =>{
@@ -59,6 +61,9 @@ export default class AboutCountry extends Component {
         let populationNumber = country.population;
         return (
             <main className="about-container">
+                {this.state.loading &&
+                <PageLoad/>
+                }
                 <Link to="/countries" className="about__btn-back">{arrowBack} Back</Link>
                 <section className="country-container"> 
                     <figure>

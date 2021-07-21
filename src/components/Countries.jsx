@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/opacity.css'
 
+import PageLoad from './PageLoad';
 import SearchSection from './SearchSection';
-import './styles/Card.scss'
+import './styles/Countries.scss'
 
 export default class Countries extends Component {
     constructor(props){
@@ -11,7 +13,8 @@ export default class Countries extends Component {
         this.state = {
             data: [{}],
             inputValue:"",
-            searchRegion:""
+            searchRegion:"",
+            loading:true,
         }
     }
     componentDidMount(){
@@ -21,9 +24,9 @@ export default class Countries extends Component {
         try{
             const response = await fetch('https://restcountries.eu/rest/v2/all');
             const data = await response.json();
-            this.setState({data:data});
+            this.setState({data,loading:false});
         }catch(error){
-            this.setState({error})
+            this.setState({error,loading:false})
         }
     }
     handleChangeInput = e =>{
@@ -49,8 +52,7 @@ export default class Countries extends Component {
                         {/* the question symbol is important to make the search of the param in the url */}
                         <Link to={`/about/?alphaCode=${country.alpha3Code}`}>
                             <figure className="country__image">
-                                
-                                    <LazyLoadImage className="lazy" loading="lazy" src={country.flag} alt={country.name} />
+                                    <LazyLoadImage effect="opacity" className="lazy" loading="lazy" src={country.flag} alt={country.name} />
                             </figure>
                         </Link>        
                         <div className="country__information">
@@ -65,6 +67,9 @@ export default class Countries extends Component {
             <React.Fragment>
                 <SearchSection inputValue={this.state.inputValue} handleChangeInput={this.handleChangeInput} handleChangeRegion={this.handleChangeRegion}/>
                 <main className="countries-container">
+                {this.state.loading && 
+                    <PageLoad/>
+                }
                     {countries}
                 </main>
             </React.Fragment>

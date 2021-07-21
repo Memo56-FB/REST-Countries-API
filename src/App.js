@@ -7,6 +7,7 @@ import {GlobalStyle} from './theme/global'
 
 import Countries from './components/Countries'
 import AboutCountry from './components/AboutCountry'
+import Page404 from './components/Page404'
 
 import './styles/Header.scss'
 
@@ -29,6 +30,9 @@ export default function App() {
               </Route>
               <Route exact path="/about">
                 <AboutCountry/>
+              </Route>
+              <Route>
+                <Page404/>
               </Route>
             </Switch>
         </ThemeProvider>

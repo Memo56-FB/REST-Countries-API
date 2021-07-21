@@ -2,7 +2,8 @@
     display: flex;
     height: 100px;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 0 40px;
 }
 input{
     padding-left: 10px;
@@ -21,5 +22,6 @@ input{
 @media (max-width:768px){
     .search-section{
         flex-direction: column;
+        margin-top: 20px;
     }
 }
