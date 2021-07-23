@@ -1,5 +1,5 @@
 import React from 'react'
-import "./styles/PageLoad.css"
+import "./styles/PageLoad.scss"
 import pacman from '../img/loader.svg'
 
 export default function PageLoad() {

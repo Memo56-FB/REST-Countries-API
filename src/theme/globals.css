@@ -1,0 +1,99 @@
+:root{
+--dark-bgColorElements:hsl(209, 23%, 22%);
+--dark-body:hsl(207, 26%, 17%);
+--dark-text:hsl(0, 0%, 100%);
+--dark-name:"Light Theme";
+--dark-shadow:#0c0f1d;
+
+--light-bgColorElements:hsl(0, 0%, 100%);
+--light-body:hsl(0, 0%, 98%);
+--light-text: hsl(200, 15%, 8%);
+--light-name:"Dark Theme";
+--light-shadow:rgb(182, 180, 180);
+}
+body.dark{
+    --bgColorElements:var(--dark-bgColorElements);
+    --body:var(--dark-body);
+    --text:var(--dark-text);
+    --name:var(--dark-name);
+    --shadow:var(--dark-shadow);
+}
+body.light{
+    --bgColorElements:var(--light-bgColorElements);
+    --body:var(--light-body);
+    --text:var(--light-text);
+    --name:var(--light-name);
+    --shadow:var(--light-shadow);
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito Sans', sans-serif;
+    transition: background-color .2s ease-in;
+}
+html{
+    font-size: 62.5%;
+}
+body{
+    font-size: 1.6rem;
+    background-color: var(--body);
+    color: var(--text);
+    /* transition: background-color .2s ease-in; */
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+.preloader{
+    background-color:var(--body);
+}
+header{
+    background-color:var(--bgColorElements);
+    box-shadow: 0 0 7px var(--shadow);
+}
+header button {
+    color:var(--text);
+}
+header button::after{
+    content: var(--name);
+}
+.country{
+    background-color: var(--bgColorElements);
+    box-shadow: 0 0 7px var(--shadow);
+}
+.search-bar{
+    background-color: var(--bgColorElements);
+    box-shadow: 0 0 7px var(--shadow);
+}
+input{
+    background-color: var(--bgColorElements);
+    color: var(--text);
+}
+input::placeholder{
+    color: var(--text);
+}
+.region-filter,.about__btn-back{
+    background-color: var(--bgColorElements);
+    color: var(--text);
+    box-shadow: 0 0 7px var(--shadow);
+}
+.border{
+    background-color:var(--bgColorElements);
+    box-shadow: 0 0 7px var(--shadow);
+}
+::-webkit-scrollbar{
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-thumb{
+    background-color:grey;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-track{
+    background:#848d95 ;
+    border-radius: 10px;
+    box-shadow: inset 7px 10px 12px 0px #F0F0F0;
+}
