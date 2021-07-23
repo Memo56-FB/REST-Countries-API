@@ -5,7 +5,6 @@ import AboutCountry from './components/AboutCountry'
 import Page404 from './components/Page404'
 
 import './theme/globals.css'
-import SwitchTheme from './theme/SwitchTheme'
 import Header from './components/Header'
 
 export default function App() {
